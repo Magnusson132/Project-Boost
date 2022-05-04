@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class CollisionHandler : MonoBehaviour
 {   
@@ -19,8 +21,13 @@ public class CollisionHandler : MonoBehaviour
                 break;
             default:
                 Debug.Log("Sorry, You crashed!");
+                ReloadLevel();
                 break;
             }    
     }
-
+    void ReloadLevel()
+    {
+        int currrentSceneIndex = SceneManager.GetActiveScene().buildIndex
+        SceneManager.LoadScene(currrentSceneIndex);
+    }
 }
