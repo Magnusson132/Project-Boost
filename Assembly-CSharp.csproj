@@ -40,6 +40,7 @@
      <Compile Include="Assets/Scripts/Propeller.cs" />
      <Compile Include="Assets/Scripts/FloatingObs.cs" />
      <Compile Include="Assets/Scripts/Movement.cs" />
+     <Compile Include="Assets/Scripts/CollisionHandler.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2020.3.30f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
