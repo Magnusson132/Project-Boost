@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
-{
-    [SerializeField] float mainThrust = 100f;
-    [SerializeField] float rotationThrust = 1f;
+{// PARAMETERS // for tuning, typically set in the editor
+    [SerializeField] float mainThrust = 100f; // option to change thrust speed in unity
+    [SerializeField] float rotationThrust = 1f; // option to change rotation speed in unity
+    [SerializeField] AudioClip mainEngine; // Makes a option to put a audiofile in movementsript in unity
+    [SerializeField] AudioClip death;
+ 
+ 
+  // CACHE // e.g. references for readability or speed  
     Rigidbody rb;
     AudioSource audioSource;
 
@@ -24,14 +29,14 @@ public class Movement : MonoBehaviour
         ProceessRotation();
     }
 
-    void ProcessThrust()
+    void ProcessThrust() // code for going straigth
     {
        if (Input.GetKey(KeyCode.Space))
        {
            rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
            if(!audioSource.isPlaying)
            {
-           audioSource.Play();
+           audioSource.PlayOneShot(mainEngine);
             
            }
            
@@ -43,7 +48,7 @@ public class Movement : MonoBehaviour
     }
 
 
-    void ProceessRotation()
+    void ProceessRotation() // code for rotating left or right
     {
         if (Input.GetKey(KeyCode.A))
         {
